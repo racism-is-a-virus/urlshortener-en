@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TakeHomeEvaluation.iml" filepath="$PROJECT_DIR$/.idea/modules/TakeHomeEvaluation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TakeHomeEvaluation.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/TakeHomeEvaluation.core.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.iml" filepath="$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.main.iml" filepath="$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/urlshortener/TakeHomeEvaluation.urlshortener.unitTest.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShortenerUrl" />
+
+    <style name="ShortenerUrl.Header">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_text_primary_dark</item>
+        <item name="android:textSize">@dimen/size_font_header</item>
+    </style>
+
+    <style name="ShortenerUrl.Header.H1">
+        <item name="android:textSize">@dimen/size_font_header_h1</item>
+    </style>
+
+    <style name="ShortenerUrl.Body">
+        <item name="android:textColor">@color/color_text_primary_light</item>
+        <item name="android:textSize">@dimen/size_font_body</item>
+    </style>
+
+</resources>

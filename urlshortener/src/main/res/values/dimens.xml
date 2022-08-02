@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_font_header">16.00sp</dimen>
+    <dimen name="size_font_header_h1">20.00sp</dimen>
+    <dimen name="size_font_body">14.00sp</dimen>
+</resources>

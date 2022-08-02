@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="urlshortener_original_url">https://sou.nu</string>
+    <string name="urlshortener_title_short">Short</string>
+    <string name="urlshortener_title_url">URL</string>
+    <string name="urlshortener_button_send_text">Enviar</string>
+    <string name="urlshortener_shortened_list_title">URLs añadidas recientemente</string>
+</resources>
