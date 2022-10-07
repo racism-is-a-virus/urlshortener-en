@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.takehomeevaluation.core.extensions.layoutInflater
 import com.takehomeevaluation.urlshortener.R
-import com.takehomeevaluation.urlshortener.databinding.UrlshortenerComponentBinding
+import com.takehomeevaluation.urlshortener.databinding.UrlshortenerUrlComponentBinding
 
 
 class UrlComponent @JvmOverloads constructor(
@@ -14,7 +14,7 @@ class UrlComponent @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ): ConstraintLayout(context, attrs, defStyleAttr) {
 
-   private val binding = UrlshortenerComponentBinding.inflate(context.layoutInflater, this)
+   private val binding = UrlshortenerUrlComponentBinding.inflate(context.layoutInflater, this)
 
     init {
         attrs?.let {
