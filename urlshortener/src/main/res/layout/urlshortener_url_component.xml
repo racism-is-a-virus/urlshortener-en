@@ -9,7 +9,7 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title_item"
         style="@style/ShortenerUrl.Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         tools:text="URL" />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/content_item"
         style="@style/ShortenerUrl.Body"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

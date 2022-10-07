@@ -19,12 +19,12 @@ class UrlComponent @JvmOverloads constructor(
     init {
         attrs?.let {
             val attributes = context.obtainStyledAttributes(it, R.styleable.UrlShortenedLabelStyleable)
-            binding.title.text = attributes.getString(R.styleable.UrlShortenedLabelStyleable_urlLabel) ?: ""
+            binding.titleItem.text = attributes.getString(R.styleable.UrlShortenedLabelStyleable_urlLabel) ?: ""
             attributes.recycle()
         }
     }
 
     fun setUrlContent(urlContent: String) {
-        binding.content.text = urlContent
+        binding.contentItem.text = urlContent
     }
 }

@@ -83,16 +83,16 @@ class UrlShortenerListFragmentTest : BaseInstrumentedTest() {
         onView(withId(R.id.urlshortener_scroll_view)).check(matches(isDisplayed()))
         onView(withId(R.id.urlshortener_list)).check(RecyclerViewItemCountAssertion(1))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.title_item)
         ).check(matches(withText("URL"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.content_item)
         ).check(matches(withText("https://sou.nu"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.title_item)
         ).check(matches(withText("Short"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.content_item)
         ).check(matches(withText("https://url-shortener-nu.herokuapp.com/short/73563"))).check(matches(isDisplayed()))
     }
 
@@ -124,16 +124,16 @@ class UrlShortenerListFragmentTest : BaseInstrumentedTest() {
         // AND: validate that a new element was not added to the list with the same content
         onView(withId(R.id.urlshortener_list)).check(RecyclerViewItemCountAssertion(1))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.title_item)
         ).check(matches(withText("URL"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.content_item)
         ).check(matches(withText("https://sou.nu"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.title_item)
         ).check(matches(withText("Short"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.content_item)
         ).check(matches(withText("https://url-shortener-nu.herokuapp.com/short/73563"))).check(matches(isDisplayed()))
     }
 
@@ -184,29 +184,29 @@ class UrlShortenerListFragmentTest : BaseInstrumentedTest() {
         onView(withId(R.id.urlshortener_list)).check(RecyclerViewItemCountAssertion(2))
         // AND: the first item on the list was the last to be sent
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.title_item)
         ).check(matches(withText("URL"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.url_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.original_url, R.id.content_item)
         ).check(matches(withText("https://nubank.com.br"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.title_item)
         ).check(matches(withText("Short"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.short_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(0, R.id.shortened_url, R.id.content_item)
         ).check(matches(withText("https://url-shortener-nu.herokuapp.com/short/58518"))).check(matches(isDisplayed()))
         // AND: the second item on the list was the first to be sent
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.url_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.original_url, R.id.title_item)
         ).check(matches(withText("URL"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.url_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.original_url, R.id.content_item)
         ).check(matches(withText("https://sou.nu"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.short_title_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.shortened_url, R.id.title_item)
         ).check(matches(withText("Short"))).check(matches(isDisplayed()))
         onView(
-            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.short_content_item)
+            withRecyclerView(R.id.urlshortener_list).atPositionOnView(1, R.id.shortened_url, R.id.content_item)
         ).check(matches(withText("https://url-shortener-nu.herokuapp.com/short/73563"))).check(matches(isDisplayed()))
     }
 }

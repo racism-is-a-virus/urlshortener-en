@@ -9,24 +9,11 @@ import org.hamcrest.TypeSafeMatcher
 
 class RecyclerViewMatcher(private val recyclerViewId: Int) {
 
-    fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View?> {
+    fun atPositionOnView(position: Int, targetViewId: Int, targetViewChildId: Int? = null): Matcher<View?> {
         return object : TypeSafeMatcher<View?>() {
             var resources: Resources? = null
             var childView: View? = null
-            override fun describeTo(description: Description?) {
-                var idDescription = recyclerViewId.toString()
-                if (resources != null) {
-                    idDescription = try {
-                        resources?.getResourceName(targetViewId) ?: ""
-                    } catch (var4: Resources.NotFoundException) {
-                        String.format(
-                            "%s (resource name not found)",
-                            Integer.valueOf(targetViewId)
-                        )
-                    }
-                }
-                description?.appendText("with id: $idDescription")
-            }
+            override fun describeTo(description: Description?) {}
 
             override fun matchesSafely(view: View?): Boolean {
                 resources = view?.resources
@@ -41,7 +28,10 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
                 return if (targetViewId == -1) {
                     view == childView
                 } else {
-                    val targetView = childView?.findViewById<View>(targetViewId)
+                    var targetView = childView?.findViewById<View>(targetViewId)
+                    targetViewChildId?.let {
+                         targetView = targetView?.findViewById(targetViewChildId)
+                    }
                     view == targetView
                 }
             }
