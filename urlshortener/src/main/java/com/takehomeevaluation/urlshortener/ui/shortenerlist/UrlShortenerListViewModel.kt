@@ -17,9 +17,7 @@ class UrlShortenerListViewModel(private val registerUrlUseCase: RegisterUrlUseCa
 
     private val urlShortenerMutableMap: MutableMap<Int, UrlShortenerItemView> = mutableMapOf()
 
-    fun validateTypedUrl(typedUrl: String) {
-        _buttonSendUrlIsEnable.postValue(typedUrl.isNotEmpty())
-    }
+    fun validateTypedUrl(typedUrl: String) = _buttonSendUrlIsEnable.postValue(typedUrl.isNotEmpty())
 
     fun registerUrl(sourceUrl: Any?) {
         (sourceUrl as String).apply {
