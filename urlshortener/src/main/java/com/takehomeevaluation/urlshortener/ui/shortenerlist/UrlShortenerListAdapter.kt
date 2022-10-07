@@ -11,13 +11,13 @@ import com.takehomeevaluation.urlshortener.databinding.UrlshortenerListItemBindi
 class UrlShortenerListAdapter :
     ListAdapter<UrlShortenerItemView, UrlShortenerListAdapter.UrlShortenerViewHolder>(sectionDiffUtil) {
 
-    private var urlShortenerViewItemList: List<UrlShortenerItemView> = emptyList()
+    private lateinit var itemViewList: List<UrlShortenerItemView>
 
-    override fun getItemCount(): Int = urlShortenerViewItemList.size
+    override fun getItemCount() = if (this::itemViewList.isInitialized) itemViewList.size else 0
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitItemList(urlShortenerViewItemList: List<UrlShortenerItemView>) {
-        this.urlShortenerViewItemList = urlShortenerViewItemList
+        this.itemViewList = urlShortenerViewItemList
         notifyDataSetChanged()
     }
 
@@ -27,7 +27,7 @@ class UrlShortenerListAdapter :
     }
 
     override fun onBindViewHolder(urlShortenerViewHolder: UrlShortenerViewHolder, position: Int) {
-        urlShortenerViewHolder.bind(urlShortenerViewItemList[position])
+        urlShortenerViewHolder.bind(itemViewList[position])
     }
 
     inner class UrlShortenerViewHolder(private val itemBinding: UrlshortenerListItemBinding) :
