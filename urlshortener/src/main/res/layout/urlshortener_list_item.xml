@@ -1,57 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="200dp">
 
-    <TextView
-        android:id="@+id/url_title_item"
-        style="@style/ShortenerUrl.Header"
-        android:layout_width="0dp"
+    <com.takehomeevaluation.urlshortener.ui.components.UrlShortComponent
+        android:id="@+id/original_url"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="URL" />
+        app:urlLabel="@string/urlshortener_title_url" />
 
-    <TextView
-        android:id="@+id/url_content_item"
-        style="@style/ShortenerUrl.Body"
-        android:layout_width="0dp"
+    <com.takehomeevaluation.urlshortener.ui.components.UrlShortComponent
+        android:id="@+id/shortened_url"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/url_title_item"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-
-    <TextView
-        android:id="@+id/short_title_item"
-        style="@style/ShortenerUrl.Header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/url_content_item"
-        tools:text="Short" />
-
-    <TextView
-        android:id="@+id/short_content_item"
-        style="@style/ShortenerUrl.Body"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/short_title_item"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+        app:layout_constraintTop_toBottomOf="@+id/original_url"
+        app:urlLabel="@string/urlshortener_title_short" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -56,7 +56,7 @@ class UrlShortenerListFragment :
     private fun setupAdapter() {
         with(binding.urlshortenerList) {
             layoutManager = LinearLayoutManager(context)
-            adapter = UrlShortenerListAdapter(context)
+            adapter = UrlShortenerListAdapter()
             addItemDecoration(
                 DividerItemDecoration(this.context, RecyclerView.VERTICAL)
             )

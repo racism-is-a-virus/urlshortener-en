@@ -1,16 +1,14 @@
 package com.takehomeevaluation.urlshortener.ui.shortenerlist
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.takehomeevaluation.core.extensions.layoutInflater
-import com.takehomeevaluation.urlshortener.R
 import com.takehomeevaluation.urlshortener.databinding.UrlshortenerListItemBinding
 
-class UrlShortenerListAdapter(private val context: Context) :
+class UrlShortenerListAdapter :
     ListAdapter<UrlShortenerItemView, UrlShortenerListAdapter.UrlShortenerViewHolder>(sectionDiffUtil) {
 
     private var urlShortenerViewItemList: List<UrlShortenerItemView> = emptyList()
@@ -32,14 +30,12 @@ class UrlShortenerListAdapter(private val context: Context) :
         urlShortenerViewHolder.bind(urlShortenerViewItemList[position])
     }
 
-    inner class UrlShortenerViewHolder(private val urlshortenerListItemBinding: UrlshortenerListItemBinding) :
-        RecyclerView.ViewHolder(urlshortenerListItemBinding.root) {
-        fun bind(urlShortenerViewItem: UrlShortenerItemView) {
-            with(urlshortenerListItemBinding) {
-                urlTitleItem.text = context.getString(R.string.urlshortener_title_url)
-                urlContentItem.text = urlShortenerViewItem.originalUrl
-                shortTitleItem.text = context.getString(R.string.urlshortener_title_short)
-                shortContentItem.text = urlShortenerViewItem.shortUrl
+    inner class UrlShortenerViewHolder(private val itemBinding: UrlshortenerListItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(itemView: UrlShortenerItemView) {
+            with(itemBinding) {
+                originalUrl.setUrlContent(urlContent = itemView.originalUrl)
+                shortenedUrl.setUrlContent(urlContent = itemView.shortUrl)
             }
         }
     }
