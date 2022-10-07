@@ -16,9 +16,7 @@ object RequestManager {
         NetworkException::class,
         RepositoryException::class
     )
-    suspend fun <T> requestFromApi(
-        request: (suspend () -> Response<T>)
-    ): T? {
+    suspend fun <T> requestFromApi(request: (suspend () -> Response<T>)): T? {
         try {
             val response = request()
             if (response.isSuccessful) {
@@ -27,9 +25,9 @@ object RequestManager {
             } else {
                 val message = response.message()
                 throw when (response.code()) {
-                    404 -> InfoNotFoundErrorException(message)
-                    500 -> ServerErrorException(message)
-                    else -> RepositoryException(message)
+                    404 -> InfoNotFoundErrorException(message = message)
+                    500 -> ServerErrorException(message = message)
+                    else -> RepositoryException(message = message)
                 }
             }
         } catch (exception: Exception) {

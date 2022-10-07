@@ -6,7 +6,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.takehomeevaluation.core.ViewState
+import com.takehomeevaluation.core.ViewState.Error
+import com.takehomeevaluation.core.ViewState.Loading
+import com.takehomeevaluation.core.ViewState.Success
 import com.takehomeevaluation.core.baseclasses.BaseFragment
 import com.takehomeevaluation.core.extensions.closeKeyBoard
 import com.takehomeevaluation.urlshortener.databinding.UrlshortenerListFragmentBinding
@@ -25,23 +27,23 @@ class UrlShortenerListFragment :
     }
 
     override fun addObservers(owner: LifecycleOwner) {
-        viewModel.viewState.observe(owner, {
-            when (it) {
-                is ViewState.Loading -> setupViewsVisibility(progressBarVisible = true)
-                is ViewState.Success -> setupViewsVisibility(progressBarVisible = false)
-                is ViewState.Error -> {
-                    setupViewsVisibility(progressBarVisible = false)
+        with(viewModel) {
+            viewState.observe(owner) {
+                when (it) {
+                    is Loading -> setupViewsVisibility(progressBarVisible = true)
+                    is Success -> setupViewsVisibility(progressBarVisible = false)
+                    is Error -> setupViewsVisibility(progressBarVisible = false)
                 }
             }
-        })
 
-        viewModel.shortenedUrlResultList.observe(owner, {
-            refreshList(it)
-        })
+            shortenedUrlResultList.observe(owner) {
+                refreshList(it)
+            }
 
-        viewModel.buttonSendUrlIsEnable.observe(owner, {
-            binding.buttonSendUrl.isEnabled = it
-        })
+            buttonSendUrlIsEnable.observe(owner) {
+                binding.buttonSendUrl.isEnabled = it
+            }
+        }
     }
 
     private fun setupAdapter() {

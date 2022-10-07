@@ -12,10 +12,10 @@ class UrlShortenerListViewModel(private val registerUrlUseCase: RegisterUrlUseCa
     private val _shortenedUrlResultList = MutableLiveData<List<UrlShortenerItemView>>()
     val shortenedUrlResultList: LiveData<List<UrlShortenerItemView>> = _shortenedUrlResultList
 
-    private val urlShortenerMutableMap: MutableMap<Int, UrlShortenerItemView> = mutableMapOf()
-
     private val _buttonSendUrlIsEnable = MutableLiveData<Boolean>()
     val buttonSendUrlIsEnable: LiveData<Boolean> = _buttonSendUrlIsEnable
+
+    private val urlShortenerMutableMap: MutableMap<Int, UrlShortenerItemView> = mutableMapOf()
 
     fun validateTypedUrl(typedUrl: String) {
         _buttonSendUrlIsEnable.postValue(typedUrl.isNotEmpty())
@@ -36,11 +36,8 @@ class UrlShortenerListViewModel(private val registerUrlUseCase: RegisterUrlUseCa
     private fun refreshShortenedList(shortenedUrl: ShortenedUrl) {
         with(shortenedUrl) {
             val itemView = UrlShortenerItemView(originalUrl = urlLinks.originalUrl, shortUrl = urlLinks.shortUrl)
-
             urlShortenerMutableMap.addShortenedUrlItemToMap(itemView)
-
             val sortedUrlShortenerItemViewList = urlShortenerMutableMap.toDescendingSortedList()
-
             _shortenedUrlResultList.postValue(sortedUrlShortenerItemViewList)
         }
     }

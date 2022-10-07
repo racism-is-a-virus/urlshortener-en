@@ -3,6 +3,9 @@ package com.takehomeevaluation.urlshortener.ui.shortenerlist
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.takehomeevaluation.core.ViewState
+import com.takehomeevaluation.core.exceptions.RepositoryException
+import com.takehomeevaluation.core.exceptions.network.NetworkException
+import com.takehomeevaluation.core.exceptions.network.ServerErrorException
 import com.takehomeevaluation.urlshortener.model.OriginalUrl
 import com.takehomeevaluation.urlshortener.model.ShortenedUrl
 import com.takehomeevaluation.urlshortener.model.UrlLinks
@@ -184,6 +187,78 @@ class UrlShortenerListViewModelTest {
         // AND: no errors happened
         verify(exactly = 0) {
             viewStateObserver.onChanged(ViewState.Error())
+        }
+    }
+
+    @Test
+    fun `GIVEN NetworkException WHEN registerUrl call THEN Loading AND Error states triggered`() {
+        // GIVEN: NetworkException
+        val exception = NetworkException(message = "ERROR CONNECTION REFUSED")
+        coEvery { registerUrlUseCase.execute(any()) } throws exception
+
+        urlShortenerListViewModel = UrlShortenerListViewModel(registerUrlUseCase)
+
+        urlShortenerListViewModel.viewState.observeForever(viewStateObserver)
+
+        // WHEN: UrlShortenerListViewModel calls registerUrl function
+        urlShortenerListViewModel.registerUrl(sourceUrl = "typed url")
+
+        // THEN: verify ViewState sequence order
+        verifySequence {
+            viewStateObserver.onChanged(ViewState.Loading)
+            viewStateObserver.onChanged(ViewState.Error(exception = exception))
+        }
+        // AND: can't return success state
+        verify(exactly = 0) {
+            viewStateObserver.onChanged(ViewState.Success)
+        }
+    }
+
+    @Test
+    fun `GIVEN ServerErrorException WHEN registerUrl call THEN Loading AND Error states triggered`() {
+        // GIVEN: ServerErrorException
+        val exception = ServerErrorException(message = "INTERNAL SERVER ERROR")
+        coEvery { registerUrlUseCase.execute(any()) } throws exception
+
+        urlShortenerListViewModel = UrlShortenerListViewModel(registerUrlUseCase)
+
+        urlShortenerListViewModel.viewState.observeForever(viewStateObserver)
+
+        // WHEN: UrlShortenerListViewModel calls registerUrl function
+        urlShortenerListViewModel.registerUrl(sourceUrl = "typed url")
+
+        // THEN: verify ViewState sequence order
+        verifySequence {
+            viewStateObserver.onChanged(ViewState.Loading)
+            viewStateObserver.onChanged(ViewState.Error(exception = exception))
+        }
+        // AND: can't return success state
+        verify(exactly = 0) {
+            viewStateObserver.onChanged(ViewState.Success)
+        }
+    }
+
+    @Test
+    fun `GIVEN RepositoryException WHEN registerUrl call THEN Loading AND Error states triggered`() {
+        // GIVEN: RepositoryException
+        val exception = RepositoryException(message = "REPOSITORY EXCEPTION")
+        coEvery { registerUrlUseCase.execute(any()) } throws exception
+
+        urlShortenerListViewModel = UrlShortenerListViewModel(registerUrlUseCase)
+
+        urlShortenerListViewModel.viewState.observeForever(viewStateObserver)
+
+        // WHEN: UrlShortenerListViewModel calls registerUrl function
+        urlShortenerListViewModel.registerUrl(sourceUrl = "typed url")
+
+        // THEN: verify ViewState sequence order
+        verifySequence {
+            viewStateObserver.onChanged(ViewState.Loading)
+            viewStateObserver.onChanged(ViewState.Error(exception = exception))
+        }
+        // AND: can't return success state
+        verify(exactly = 0) {
+            viewStateObserver.onChanged(ViewState.Success)
         }
     }
 }

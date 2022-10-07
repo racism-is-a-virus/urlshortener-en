@@ -16,13 +16,14 @@ abstract class BaseViewModel : ViewModel() {
     fun doAsyncWork(work: suspend () -> Unit) {
         viewModelScope.launch {
             _viewState.postValue(ViewState.Loading)
-            try {
+            runCatching {
                 work()
-            } catch (exception: Exception) {
-                Timber.e(exception)
-                _viewState.postValue(ViewState.Error(exception.message, exception))
+                _viewState.postValue(ViewState.Success)
+            }.onFailure {
+                it as Exception
+                Timber.e(it)
+                _viewState.postValue(ViewState.Error(exception = it))
             }
-            _viewState.postValue(ViewState.Success)
         }
     }
 }

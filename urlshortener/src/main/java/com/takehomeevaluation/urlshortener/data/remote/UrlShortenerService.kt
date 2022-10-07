@@ -8,7 +8,5 @@ import retrofit2.http.POST
 
 interface UrlShortenerService {
     @POST("/api/alias")
-    suspend fun registerUrl(
-        @Body originalUrl: OriginalUrlInput
-    ): Response<ShortenedUrlResponse>
+    suspend fun registerUrl(@Body originalUrl: OriginalUrlInput): Response<ShortenedUrlResponse>
 }

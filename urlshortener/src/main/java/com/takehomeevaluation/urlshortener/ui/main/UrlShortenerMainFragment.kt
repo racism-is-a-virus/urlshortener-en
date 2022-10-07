@@ -17,11 +17,12 @@ import org.koin.core.parameter.parametersOf
  */
 internal class UrlShortenerMainFragment : Fragment() {
 
-    private lateinit var binding: UrlshortenerMainFragmentBinding
+    private var _binding: UrlshortenerMainFragmentBinding? = null
+    private val binding get() = _binding!!
     private val urlShortenerNavigation: UrlShortenerNavigation by inject { parametersOf(findNavController()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = UrlshortenerMainFragmentBinding.inflate(inflater, container, false)
+        _binding = UrlshortenerMainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

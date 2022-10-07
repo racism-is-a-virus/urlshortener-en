@@ -32,9 +32,7 @@ open class BaseInstrumentedTest {
     protected val urlShortenerRemoteRepository: UrlShortenerRemoteRepository = mockk()
 
     @Before
-    fun baseSetup() {
-        application.startDependencyInjection(getModule())
-    }
+    fun baseSetup() = application.startDependencyInjection(getModule())
 
     @After
     fun baseAfter() {
