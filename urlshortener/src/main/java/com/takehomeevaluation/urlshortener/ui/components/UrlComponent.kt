@@ -12,9 +12,9 @@ class UrlComponent @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-): ConstraintLayout(context, attrs, defStyleAttr) {
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-   private val binding = UrlshortenerUrlComponentBinding.inflate(context.layoutInflater, this)
+    val binding = UrlshortenerUrlComponentBinding.inflate(context.layoutInflater, this)
 
     init {
         attrs?.let {

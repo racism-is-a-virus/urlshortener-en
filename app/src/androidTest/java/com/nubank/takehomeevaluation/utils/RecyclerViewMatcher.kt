@@ -13,7 +13,6 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
         return object : TypeSafeMatcher<View?>() {
             var resources: Resources? = null
             var childView: View? = null
-            override fun describeTo(description: Description?) {}
 
             override fun matchesSafely(view: View?): Boolean {
                 resources = view?.resources
@@ -30,11 +29,13 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
                 } else {
                     var targetView = childView?.findViewById<View>(targetViewId)
                     targetViewChildId?.let {
-                         targetView = targetView?.findViewById(targetViewChildId)
+                        targetView = targetView?.findViewById(targetViewChildId)
                     }
                     view == targetView
                 }
             }
+
+            override fun describeTo(description: Description?) {}
         }
     }
 
