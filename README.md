@@ -31,7 +31,7 @@ Este aplicativo é composto por apenas uma tela, que tem:
 
 O aplicativo está dividido em 03 módulos:
 
-- https://github.com/fredelinhares/url-shortener/tree/master/app: responsável por executar os testes de UI (em um eventual deploy, esse módulo - e todo o código contido nele - não será deployado para produção).
+- [app](https://github.com/fredelinhares/url-shortener/tree/master/app): responsável por executar os testes de UI (em um eventual deploy, esse módulo - e todo o código contido nele - não será deployado para produção).
 
 - core: 
   - Infraestrutura de comunicação com a API (ApiClientBuilder, RequestManager), exceptions de comunicação com o servidor, etc...
