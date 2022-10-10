@@ -8,7 +8,7 @@ Este aplicativo é composto por apenas uma tela, que tem:
 - Um botão que acionará a ação de envio deste link para o serviço;
 - Uma lista com os links/aliases recentemente encurtados.
 
-## Tecnologias/Arquitetura:
+## Tecnologias/Arquitetura/Princípios...:
 - [x] Plataforma - Android: https://developer.android.com/
 - [x] Linguagem - Kotlin: https://kotlinlang.org/
 - [x] Single activity - Apresentação por Ian Lake -> 'Single activity - Why, when, and how (Android Dev Summit '18)': https://www.youtube.com/watch?v=2k8x8V77CrU&ab_channel=AndroidDevelopers
@@ -16,11 +16,12 @@ Este aplicativo é composto por apenas uma tela, que tem:
  https://www.youtube.com/watch?v=PZBg5DIzNww&ab_channel=AndroidDevelopers
 - [x] Navigation component: https://developer.android.com/guide/navigation/navigation-getting-started
 - [x] Koin -DI framework: https://insert-koin.io/
-- [x] MVVM
+- [x] MVVM: https://developer.android.com/topic/architecture
 - [x] Clean architecture: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-- [x] Clean code
+- [x] Clean code: https://www.oreilly.com/library/view/clean-code-a/9780136083238/
 - [x] Coroutines: https://kotlinlang.org/docs/coroutines-guide.html
-- [x] Retrofit
+- [x] Retrofit: https://square.github.io/retrofit/
+- [x] S.O.L.I.D: https://en.wikipedia.org/wiki/SOLID
 
 ## Testes:
 - [x] Testes unitários - MockK: https://github.com/mockk/mockk
