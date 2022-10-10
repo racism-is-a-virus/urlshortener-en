@@ -45,6 +45,6 @@ O aplicativo está dividido em 03 módulos:
 - A divisão dos módulos não levou-se em consideração o fator escalabilidade. Num projeto real, poderiamos criar por exemplo, um app multi repositório,
 onde poderiamos ter, por exemplo:
   - Um repositório de dados, seguindo o modelo de "single source of truth (SSOT)": https://en.wikipedia.org/wiki/Single_source_of_truth
-  - Um repositório separado para cada feature do projeto - exemplo, o módulo urlshortener. Tais módulos de features seriam, no final, incorporados num aplicativo pai via maven/gradle.
+  - Um repositório separado para cada feature do projeto - exemplo, o módulo urlshortener. Tais módulos de features seriam, no final, incorporados num aplicativo pai via maven/gradle, aplicando uma estratégia de gerenciamento de dependências - BOM or Bill Of Materials (exemplo em, https://firebase.blog/posts/2020/11/dependency-management-ios-android).
   - Um repositório para gerenciamento da infraestrutura de sdks como firebase.
   - Um repositório para gerenciamento de skds para analytics... 
