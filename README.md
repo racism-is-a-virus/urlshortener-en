@@ -37,7 +37,7 @@ O aplicativo está dividido em 03 módulos:
   - Infraestrutura de comunicação com a API (ApiClientBuilder, RequestManager), exceptions de comunicação com o servidor, etc...
   - Gerenciamento de estado dos fragmentos: BaseViewModel, ViewState.
 
-- urlshortener: módulo responsável pela implementação da feature. Contém a tela (UrlShortenerListFragment) com a qual o usuário interage.
+- [urlshortener](https://github.com/fredelinhares/url-shortener/tree/master/urlshortener): módulo responsável pela implementação da feature. Contém a tela (UrlShortenerListFragment) com a qual o usuário interage.
 
 ## Observações:
 
