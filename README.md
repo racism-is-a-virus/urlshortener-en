@@ -1,3 +1,13 @@
+## O que é esse aplicativo? 
+
+Urlshortener é um pequeno aplicativo Android que permite encurtar urls e exibir um histórico dos links recentemente encurtados para seus sites favoritos.
+
+Este aplicativo é composto por apenas uma tela, que tem:
+
+- Uma entrada de texto em que o usuário pode digitar a URL do site para encurtar;
+- Um botão que acionará a ação de envio deste link para o serviço;
+- Uma lista com os links/aliases recentemente encurtados.
+
 ## Tecnologias/Arquitetura:
 - [x] Plataforma - Android: https://developer.android.com/
 - [x] Linguagem - Kotlin: https://kotlinlang.org/
@@ -16,16 +26,6 @@
 - [x] Testes unitários - MockK: https://github.com/mockk/mockk
 - [x] Testes de componentes com - Robolectric: http://robolectric.org/
 - [x] Testes instrumentados com - Espresso: https://developer.android.com/training/testing/espresso
-
-## O que é esse aplicativo? 
-
-Urlshortener é um pequeno aplicativo Android que permite encurtar urls e exibir um histórico dos links recentemente encurtados para seus sites favoritos.
-
-Este aplicativo é composto por apenas uma tela, que tem:
-
-- Uma entrada de texto em que o usuário pode digitar a URL do site para encurtar;
-- Um botão que acionará a ação de envio deste link para o serviço;
-- Uma lista com os links/aliases recentemente encurtados.
 
 ## Organização do código
 
@@ -47,5 +47,4 @@ onde poderiamos ter, por exemplo:
  - Um repositório de dados, seguindo o modelo de "single source of truth (SSOT)": https://en.wikipedia.org/wiki/Single_source_of_truth
  - Um repositório separado para cada feature do projeto - exemplo, o módulo urlshortener. Tais módulos de features seriam, no final, incorporados num aplicativo pai via maven/gradle.
  - Um repositório para gerenciamento da infraestrutura de sdks como firebase.
- - Um repositório para gerenciamento de skds para analytics...
-
+ - Um repositório para gerenciamento de skds para analytics... 
