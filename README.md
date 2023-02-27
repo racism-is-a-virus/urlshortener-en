@@ -1,3 +1,14 @@
+## Important notes: The API is not working!
+
+- The UI is not made in Jetpack Compose.
+- It is extremely important to point out that the development of a layout with an advanced visual aspect was not taken into account.
+- The division of modules did not take into account the scalability factor. In a real project, we could create, for example, a multi repository app,
+where we could have, for example:
+   - A data repository, following the "single source of truth (SSOT)" model: https://en.wikipedia.org/wiki/Single_source_of_truth
+   - A separate repository for each feature of the project - for example, the urlshortener module. Such feature modules would, in the end, be incorporated into a parent application via maven/gradle, applying a dependency management strategy - BOM or Bill Of Materials (example at, https://firebase.blog/posts/2020/11/dependency -management-ios-android).
+   - A repository for managing SDK infrastructure like firebase.
+   - A repository for managing skds for analytics...
+
 ## What is this application?
 
 Urlshortener is a small Android app that allows you to shorten urls and display a history of recently shortened links to your favorite websites.
@@ -39,13 +50,3 @@ The application is divided into 03 modules:
   - Fragment state management: BaseViewModel, ViewState.
 
 - [urlshortener](https://github.com/fredelinhares/url-shortener/tree/master/urlshortener): module responsible for implementing the feature. Contains the canvas (UrlShortenerListFragment) with which the user interacts.
-
-## Important notes:
-
-- It is extremely important to point out that the development of a layout with an advanced visual aspect was not taken into account.
-- The division of modules did not take into account the scalability factor. In a real project, we could create, for example, a multi repository app,
-where we could have, for example:
-   - A data repository, following the "single source of truth (SSOT)" model: https://en.wikipedia.org/wiki/Single_source_of_truth
-   - A separate repository for each feature of the project - for example, the urlshortener module. Such feature modules would, in the end, be incorporated into a parent application via maven/gradle, applying a dependency management strategy - BOM or Bill Of Materials (example at, https://firebase.blog/posts/2020/11/dependency -management-ios-android).
-   - A repository for managing SDK infrastructure like firebase.
-   - A repository for managing skds for analytics...
