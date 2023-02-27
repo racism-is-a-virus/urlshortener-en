@@ -8,7 +8,7 @@ This app consists of only one screen, which has:
 - A button that will trigger the action of sending this link to the service;
 - A list with the recently shortened links/aliases.  
 
-## Technologies/Architecture/Principles...:
+## Technologies/Architecture/Principles:
 
 - [x] Platform - Android: https://developer.android.com/
 - [x] Language - Kotlin: https://kotlinlang.org/
