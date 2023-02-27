@@ -1,5 +1,6 @@
 ## Important notes: The API is not working!
 
+- The API isnt working: if you want to understand how the app works, go to the app module and run the instrumented tests: https://github.com/fredelinhares/nubank/tree/master/app/src/androidTest/java/com/nubank/takehomeevaluation
 - The UI is not made in Jetpack Compose.
 - It is extremely important to point out that the development of a layout with an advanced visual aspect was not taken into account.
 - The division of modules did not take into account the scalability factor. In a real project, we could create, for example, a multi repository app,
