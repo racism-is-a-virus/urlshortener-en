@@ -1,19 +1,19 @@
-## O que é esse aplicativo? 
+## What is this application?
 
-Urlshortener é um pequeno aplicativo Android que permite encurtar urls e exibir um histórico dos links recentemente encurtados para seus sites favoritos.
+Urlshortener is a small Android app that allows you to shorten urls and display a history of recently shortened links to your favorite websites.
 
-Este aplicativo é composto por apenas uma tela, que tem:
+This app consists of only one screen, which has:
 
-- Uma entrada de texto em que o usuário pode digitar a URL do site para encurtar;
-- Um botão que acionará a ação de envio deste link para o serviço;
-- Uma lista com os links/aliases recentemente encurtados.
+- A text entry where the user can type the URL of the site to shorten;
+- A button that will trigger the action of sending this link to the service;
+- A list with the recently shortened links/aliases.  
 
-## Tecnologias/Arquitetura/Princípios...:
-- [x] Plataforma - Android: https://developer.android.com/
-- [x] Linguagem - Kotlin: https://kotlinlang.org/
-- [x] Single activity - Apresentação por Ian Lake -> 'Single activity - Why, when, and how (Android Dev Summit '18)': https://www.youtube.com/watch?v=2k8x8V77CrU&ab_channel=AndroidDevelopers
-- [x] Multi-Module - Apresentação por Yigit Boyar, Florina Muntenescu -> 'Build a modular Android app architecture (Google I/O'19)':
- https://www.youtube.com/watch?v=PZBg5DIzNww&ab_channel=AndroidDevelopers
+## Technologies/Architecture/Principles...:
+
+- [x] Platform - Android: https://developer.android.com/
+- [x] Language - Kotlin: https://kotlinlang.org/
+- [x] Single activity - Presentation by Ian Lake -> 'Single activity - Why, when, and how (Android Dev Summit '18)': https://www.youtube.com/watch?v=2k8x8V77CrU&ab_channel=AndroidDevelopers
+- [x] Multi-Module - Presentation by Yigit Boyar, Florina Mutenescu -> 'Build a modular Android app architecture (Google I/O'19)': https://www.youtube.com/watch?v=PZBg5DIzNww&ab_channel=AndroidDevelopers
 - [x] Navigation component: https://developer.android.com/guide/navigation/navigation-getting-started
 - [x] Koin -DI framework: https://insert-koin.io/
 - [x] MVVM: https://developer.android.com/topic/architecture
@@ -21,31 +21,31 @@ Este aplicativo é composto por apenas uma tela, que tem:
 - [x] Clean code: https://www.oreilly.com/library/view/clean-code-a/9780136083238/
 - [x] Coroutines: https://kotlinlang.org/docs/coroutines-guide.html
 - [x] Retrofit: https://square.github.io/retrofit/
-- [x] S.O.L.I.D: https://en.wikipedia.org/wiki/SOLID
+- [x] S.O.L.I.D: https://en.wikipedia.org/wiki/SOLID  
 
-## Testes:
-- [x] Testes unitários - MockK: https://github.com/mockk/mockk
-- [x] Testes de componentes com - Robolectric: http://robolectric.org/
-- [x] Testes instrumentados com - Espresso: https://developer.android.com/training/testing/espresso
+## Tests:
+- [x] Unit tests - MockK: https://github.com/mockk/mockk
+- [x] Component testing with - Robolectric: http://robolectric.org/
+- [x] Instrumented tests with - Espresso: https://developer.android.com/training/testing/espresso
+ 
+## Code organization
 
-## Organização do código
+The application is divided into 03 modules:
 
-O aplicativo está dividido em 03 módulos:
+- [app](https://github.com/fredelinhares/url-shortener/tree/master/app): responsible for running the UI tests (in an eventual deploy, this module - and all the code contained in it - will not will be deployed to production).
 
-- [app](https://github.com/fredelinhares/url-shortener/tree/master/app): responsável por executar os testes de UI (em um eventual deploy, esse módulo - e todo o código contido nele - não será deployado para produção).
+- [core](https://github.com/fredelinhares/url-shortener/tree/master/core):
+  - Infrastructure for communication with the API (ApiClientBuilder, RequestManager), exceptions for communication with the server, etc...
+  - Fragment state management: BaseViewModel, ViewState.
 
-- [core](https://github.com/fredelinhares/url-shortener/tree/master/core): 
-  - Infraestrutura de comunicação com a API (ApiClientBuilder, RequestManager), exceptions de comunicação com o servidor, etc...
-  - Gerenciamento de estado dos fragmentos: BaseViewModel, ViewState.
+- [urlshortener](https://github.com/fredelinhares/url-shortener/tree/master/urlshortener): module responsible for implementing the feature. Contains the canvas (UrlShortenerListFragment) with which the user interacts.
 
-- [urlshortener](https://github.com/fredelinhares/url-shortener/tree/master/urlshortener): módulo responsável pela implementação da feature. Contém a tela (UrlShortenerListFragment) com a qual o usuário interage.
+## Important notes:
 
-## Observações:
-
-- É de suma importância salientar que não levou-se em consideração o desenvolvimento de um layout com aspecto visual avançado.
-- A divisão dos módulos não levou-se em consideração o fator escalabilidade. Num projeto real, poderiamos criar por exemplo, um app multi repositório,
-onde poderiamos ter, por exemplo:
-  - Um repositório de dados, seguindo o modelo de "single source of truth (SSOT)": https://en.wikipedia.org/wiki/Single_source_of_truth
-  - Um repositório separado para cada feature do projeto - exemplo, o módulo urlshortener. Tais módulos de features seriam, no final, incorporados num aplicativo pai via maven/gradle, aplicando uma estratégia de gerenciamento de dependências - BOM or Bill Of Materials (exemplo em, https://firebase.blog/posts/2020/11/dependency-management-ios-android).
-  - Um repositório para gerenciamento da infraestrutura de sdks como firebase.
-  - Um repositório para gerenciamento de skds para analytics...
+- It is extremely important to point out that the development of a layout with an advanced visual aspect was not taken into account.
+- The division of modules did not take into account the scalability factor. In a real project, we could create, for example, a multi repository app,
+where we could have, for example:
+   - A data repository, following the "single source of truth (SSOT)" model: https://en.wikipedia.org/wiki/Single_source_of_truth
+   - A separate repository for each feature of the project - for example, the urlshortener module. Such feature modules would, in the end, be incorporated into a parent application via maven/gradle, applying a dependency management strategy - BOM or Bill Of Materials (example at, https://firebase.blog/posts/2020/11/dependency -management-ios-android).
+   - A repository for managing SDK infrastructure like firebase.
+   - A repository for managing skds for analytics...
