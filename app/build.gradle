@@ -23,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField 'String', 'BASE_URL', '"https://url-shortener-nu.herokuapp.com/"'
+            buildConfigField 'String', 'BASE_URL', '"https://shortenedlinks.fredleonam.repl.co/"'
         }
     }
     compileOptions {
